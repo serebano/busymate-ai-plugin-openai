@@ -92,7 +92,7 @@
             }
           ]
         },
-        "demo_recording_url": "https://busymate.ai/review/chatgpt-demo",
+        "demo_recording_url": "https://github.com/serebano/busymate-ai-plugin-openai/releases/download/review-demo-1.0.0/busymate-ai-openai-demo.mp4",
         "commerce": false,
         "commerce_description": "This plugin does not sell products or process payments."
       },
@@ -101,5 +101,6 @@
         "release_notes": "Initial release: customer conversations, handoff requests with replies and internal notes, knowledge search and the website install snippet for Busymate AI workspaces."
       }
     }
-  }
+  },
+  "repository": "https://github.com/serebano/busymate-ai-plugin-openai"
 }
