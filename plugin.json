@@ -68,7 +68,7 @@
             {
               "description": "Answer a customer email",
               "prompt": "Find the latest unanswered customer email about delivery and draft a reply saying orders ship within 3 days.",
-              "tools_triggered": "search_email, get_email_thread, reply_email",
+              "tools_triggered": "search_email, get_email_thread, send_email_reply",
               "expected_behavior": "Shows the thread, drafts the reply, asks for confirmation, then sends it to the demo customer and confirms."
             }
           ],

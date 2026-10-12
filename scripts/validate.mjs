@@ -44,7 +44,7 @@ for (const f of ['websiteURL', 'supportURL', 'privacyPolicyURL', 'termsOfService
 }
 
 const caps = ui.capabilities ?? [];
-if (!Array.isArray(caps) || caps.length === 0 || caps.length > 20) fail('interface.capabilities: 1-20 entries required (Codex needs it)');
+if (!Array.isArray(caps) || caps.length === 0 || caps.length > 20) fail('interface.capabilities: 1-20 entries required (Codex)');
 caps.forEach((c) => c.length > 120 && fail(`capability over 120 chars: ${c}`));
 
 const prompts = ui.defaultPrompt ?? [];
@@ -79,8 +79,29 @@ if (!oa.publication?.release_notes) fail('publication.release_notes: required');
 for (const k of ['test_credentials', 'reviewer_instructions']) if (k in (oa.review ?? {})) fail(`review.${k}: never put this in the package; use the portal form`);
 if (oa.apps || oa.hooks) fail('extensions.com.openai: apps/hooks are not allowed in a submission package');
 
+// Codex is a selected surface, so the fields the Codex format requires are mandatory.
+if (!/^\d+\.\d+\.\d+$/.test(plugin.version ?? '')) fail('version: explicit semver required (Codex)');
+if (!plugin.description?.trim() || plugin.description.length > 4000) fail('description: required, at most 4000 characters (Codex)');
+if (!plugin.author?.name?.trim() || plugin.author.name.length > 120) fail('author.name: required, at most 120 characters (Codex)');
+if (plugin.author?.url && !plugin.author.url.startsWith('https://')) fail('author.url: must be HTTPS');
+
 // The listed tools must exist in the declared profile.
 const declared = new Set(tools.tools.map((t) => t.name));
+
+// Skills: immediate children of skills/, front matter with name = folder and a
+// string description, and only tools from the declared profile.
+const skillsDir = path.join(ROOT, 'skills');
+for (const s of fs.existsSync(skillsDir) ? fs.readdirSync(skillsDir).filter((n) => n !== '.DS_Store') : []) {
+  if (s.startsWith('.')) { fail(`skills/${s}: hidden skill directory`); continue; }
+  const file = path.join(skillsDir, s, 'SKILL.md');
+  if (!fs.existsSync(file)) { fail(`skills/${s}: SKILL.md missing`); continue; }
+  const md = fs.readFileSync(file, 'utf8');
+  const fm = md.match(/^---\n([\s\S]*?)\n---/);
+  if (!fm) { fail(`skills/${s}: front matter missing`); continue; }
+  if (fm[1].match(/^name:\s*(.+)$/m)?.[1] !== s) fail(`skills/${s}: name must match its folder`);
+  if (!fm[1].match(/^description:\s*\S.+$/m)) fail(`skills/${s}: description required`);
+  for (const m of md.matchAll(/`([a-z]+(?:_[a-z]+)+)`/g)) if (!declared.has(m[1])) fail(`skills/${s}: uses undeclared tool ${m[1]}`);
+}
 (tc.positive ?? []).forEach((c, i) => c.tools_triggered.split(',').map((s) => s.trim()).forEach((t) => !declared.has(t) && fail(`positive[${i}] uses undeclared tool ${t}`)));
 
 const servers = Object.entries(mcp.mcpServers ?? {});

@@ -243,7 +243,7 @@
       "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
     },
     {
-      "name": "reply_email",
+      "name": "send_email_reply",
       "summary": "Sends an email reply to the customer on an existing thread.",
       "annotations": {
         "readOnlyHint": false,
