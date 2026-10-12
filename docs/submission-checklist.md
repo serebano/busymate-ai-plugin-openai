@@ -45,14 +45,23 @@ Sources:
 - [ ] H No sale of digital goods or subscriptions inside the plugin. Plan changes stay in the Busymate Console.
 - [ ] H Not a demo or trial plugin. No comparisons or unverifiable claims in the listing.
 
+## Surfaces
+
+Selected: **ChatGPT and Codex**. Every test case must pass on each supported surface, and the demo video must show them.
+
+- [ ] H All 5 positive and 3 negative cases pass on ChatGPT web, ChatGPT iOS, ChatGPT Android and Codex. Record the results in `review/test-matrix.md`.
+- [ ] H The Codex manifest fields are present: `version`, `description`, `author.name`, `interface`, a non-empty `capabilities` list, `logo` and `composerIcon`. `validate.mjs` checks these.
+- [ ] H Both skills pass the portal's skill safety and security scans. Skills use only tools from the declared profile.
+- [ ] S Sign-in works from the Codex app and Codex CLI as well as ChatGPT. The OAuth redirect shown on the management page covers both.
+
 ## Package (this repo)
 
 - [ ] H `node scripts/validate.mjs` passes.
 - [ ] H `displayName` and `shortDescription` are 30 characters or fewer; `longDescription` is 4000 or fewer; the category is from the allowed list.
 - [ ] H The name does not append "MCP", "Plugin" or "App".
 - [ ] H The square `logo` and `composerIcon` are under `./assets/`.
-- [ ] H There are exactly 5 positive and 3 negative test cases. Each is run with the reviewer account on every selected surface: ChatGPT web, iOS and Android, plus Codex if selected.
-- [ ] H The demo video covers the OAuth connect flow and every test case on every selected surface.
+- [ ] H There are exactly 5 positive and 3 negative test cases. Each is run with the reviewer account on ChatGPT web, iOS and Android, and on Codex.
+- [ ] H The demo video covers the OAuth connect flow and every test case in ChatGPT, plus the connect flow and the positive cases in Codex.
 - [ ] H The package contains no credentials, `headers`, `clientSecret`, hooks or `.app.json`.
 - [ ] H `publication.countries` lists only countries where the plugin is intended to be public. `[]` means unrestricted.
 

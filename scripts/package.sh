@@ -7,5 +7,5 @@ VERSION="$(node -p "require('$ROOT/plugin.json').version")"
 OUT="$ROOT/dist/busymate-ai-openai-plugin-$VERSION.zip"
 mkdir -p "$ROOT/dist"
 rm -f "$OUT"
-(cd "$ROOT" && zip -q -X "$OUT" plugin.json mcp.json assets/logo.png assets/composer-icon.png LICENSE)
+(cd "$ROOT" && zip -q -X -r "$OUT" plugin.json mcp.json assets/logo.png assets/composer-icon.png skills LICENSE -x "*.DS_Store")
 echo "package: $OUT"
