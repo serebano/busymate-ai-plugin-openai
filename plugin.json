@@ -1,0 +1,100 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "busymate-ai",
+  "version": "1.0.0",
+  "description": "Review and answer your Busymate AI customer conversations, handoffs and email from ChatGPT.",
+  "author": {
+    "name": "Busymate AI",
+    "email": "hi@busymate.ai",
+    "url": "https://busymate.ai"
+  },
+  "homepage": "https://busymate.ai",
+  "license": "MIT",
+  "keywords": ["customer support", "inbox", "help desk", "knowledge base"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Busymate AI",
+        "shortDescription": "Your customer inbox, in chat",
+        "longDescription": "Busymate AI connects ChatGPT to your Busymate workspace, the assistant that answers your customers on your website and by email. Sign in with your Busymate account to review recent customer conversations, see which ones your assistant handed to a person, read the full thread, and reply or resolve from the chat. You can also search your workspace knowledge, add a public web page as a knowledge source, read and answer customer email, and get the snippet that installs the assistant on your site.\n\nFor owners and support staff of businesses that use Busymate AI.\n\nLimits: you need a Busymate account, and you see only the workspaces you belong to. Replies to customers are sent only after you confirm them and cannot be recalled. Workspace setup, billing, team management and channel connections stay in the Busymate Console.",
+        "developerName": "Busymate AI",
+        "category": "Business & Operations",
+        "capabilities": [
+          "Review customer conversations",
+          "Reply to and resolve handoff requests",
+          "Read and answer customer email",
+          "Search workspace knowledge",
+          "Get the website install snippet"
+        ],
+        "websiteURL": "https://busymate.ai",
+        "supportURL": "https://busymate.ai/contact",
+        "privacyPolicyURL": "https://busymate.ai/privacy",
+        "termsOfServiceURL": "https://busymate.ai/terms",
+        "defaultPrompt": [
+          "Which customer conversations need my attention today?",
+          "Summarize the open handoff requests in my workspace.",
+          "What does my knowledge base say about returns?"
+        ],
+        "composerIcon": "./assets/composer-icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find workspaces that need attention",
+              "prompt": "Which of my workspaces have open handoff requests?",
+              "tools_triggered": "list_tenants, get_tenant_inbox_counts",
+              "expected_behavior": "Lists the demo workspace with its count of open handoff requests, by workspace name."
+            },
+            {
+              "description": "Summarize open handoffs",
+              "prompt": "Show the open handoff requests in my demo workspace and summarize each one.",
+              "tools_triggered": "list_tenant_interventions, get_tenant_intervention",
+              "expected_behavior": "Lists each open handoff with the customer's first name, topic and wait time, and a one-line summary."
+            },
+            {
+              "description": "Reply to a customer and resolve",
+              "prompt": "Reply to the warranty question saying we will ship a replacement part on Monday, then mark it resolved.",
+              "tools_triggered": "get_tenant_intervention, reply_tenant_intervention, resolve_tenant_intervention",
+              "expected_behavior": "ChatGPT asks for confirmation before sending. After approval the reply is delivered to the demo customer, the handoff becomes resolved, and both steps are confirmed."
+            },
+            {
+              "description": "Answer from workspace knowledge",
+              "prompt": "What does our knowledge base say about return windows?",
+              "tools_triggered": "search_knowledge",
+              "expected_behavior": "Quotes the 30-day returns policy from the demo knowledge source and names the source."
+            },
+            {
+              "description": "Answer a customer email",
+              "prompt": "Find the latest unanswered customer email about delivery and draft a reply saying orders ship within 3 days.",
+              "tools_triggered": "search_email, get_email_thread, reply_email",
+              "expected_behavior": "Shows the thread, drafts the reply, asks for confirmation, then sends it to the demo customer and confirms."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Plan change is out of scope",
+              "prompt": "Upgrade my Busymate plan to Pro."
+            },
+            {
+              "description": "Bulk deletion is not available",
+              "prompt": "Delete all conversations older than a year."
+            },
+            {
+              "description": "Workspace outside the account",
+              "prompt": "Show the conversations in acme-corp's workspace."
+            }
+          ]
+        },
+        "demo_recording_url": "https://busymate.ai/review/chatgpt-demo",
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments."
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "Initial release: customer conversations, handoff requests, email threads, knowledge search and the website install snippet for Busymate AI workspaces."
+      }
+    }
+  }
+}

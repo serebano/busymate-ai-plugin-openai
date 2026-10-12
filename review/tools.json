@@ -1,0 +1,276 @@
+{
+  "_note": "Proposed v1 tool profile. The authoritative definitions live on the server (busymate-ai-src); CI compares this file with the live tools/list.",
+  "serverUrl": "https://busymate.ai/mcp/openai",
+  "tools": [
+    {
+      "name": "list_tenants",
+      "summary": "Lists the Busymate workspaces the signed-in user belongs to.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "get_tenant",
+      "summary": "Reads one workspace's name, website and assistant status.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "get_tenant_inbox_counts",
+      "summary": "Counts open conversations and handoff requests in a workspace.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "list_tenant_conversations",
+      "summary": "Lists recent customer conversations in a workspace, paginated.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "get_tenant_conversation_transcript",
+      "summary": "Reads the messages of one customer conversation.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "list_tenant_interventions",
+      "summary": "Lists handoff requests where the assistant asked for a person.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "get_tenant_intervention",
+      "summary": "Reads one handoff request and its conversation context.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "reply_tenant_intervention",
+      "summary": "Sends a reply from the business to the customer in a handoff conversation.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "readOnlyHint": "Changes state in the user's Busymate workspace.",
+        "destructiveHint": "Sends a message to an end customer outside ChatGPT; the send cannot be recalled.",
+        "openWorldHint": "Delivers a message to an external person (the business's customer)."
+      },
+      "verify": "Confirm handler side effects match the summary before freezing."
+    },
+    {
+      "name": "resolve_tenant_intervention",
+      "summary": "Marks a handoff request resolved and hands the conversation back to the assistant.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Changes state in the user's Busymate workspace.",
+        "destructiveHint": "Overwrites the handoff status and returns the customer conversation to the assistant, which changes customer-facing behaviour.",
+        "openWorldHint": "Acts only inside the user's own Busymate workspace."
+      },
+      "verify": "Confirm handler side effects match the summary before freezing."
+    },
+    {
+      "name": "add_tenant_intervention_note",
+      "summary": "Adds an internal note to a handoff request; customers never see it.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Changes state in the user's Busymate workspace.",
+        "destructiveHint": "Purely additive: appends an internal note and changes nothing existing.",
+        "openWorldHint": "Acts only inside the user's own Busymate workspace; notes are never sent to customers."
+      },
+      "verify": "Confirm handler side effects match the summary before freezing."
+    },
+    {
+      "name": "list_tenant_knowledge_sources",
+      "summary": "Lists the knowledge sources the assistant answers from.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "search_knowledge",
+      "summary": "Searches the workspace knowledge and returns matching passages with their source.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "add_tenant_knowledge_source",
+      "summary": "Adds a public web page as a knowledge source; Busymate fetches and indexes it.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "readOnlyHint": "Changes state in the user's Busymate workspace.",
+        "destructiveHint": "Additive: creates a new knowledge source and does not change or remove existing ones.",
+        "openWorldHint": "Fetches a public web page chosen by the user from the open internet."
+      },
+      "verify": "Confirm handler side effects match the summary before freezing."
+    },
+    {
+      "name": "list_email_threads",
+      "summary": "Lists customer email threads in the workspace inbox.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "search_email",
+      "summary": "Searches customer email threads by text, sender or subject.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "get_email_thread",
+      "summary": "Reads the messages of one email thread.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    },
+    {
+      "name": "reply_email",
+      "summary": "Sends an email reply to the customer on an existing thread.",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "readOnlyHint": "Changes state in the user's Busymate workspace.",
+        "destructiveHint": "Sends an email to an end customer; email cannot be recalled.",
+        "openWorldHint": "Delivers an email to an external address."
+      },
+      "verify": "Confirm handler side effects match the summary before freezing."
+    },
+    {
+      "name": "get_install_snippet",
+      "summary": "Returns the script snippet that installs the assistant on the business's website.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
+        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
+        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
+      },
+      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
+    }
+  ]
+}
