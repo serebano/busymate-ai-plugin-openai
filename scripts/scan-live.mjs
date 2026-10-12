@@ -52,13 +52,13 @@ try {
     }
     const d = got.description ?? '';
     if (!d.trim()) problems.push(`${want.name}: empty description`);
-    if (/#\d{2,}|busymate-ai#|\b(NEVER|ALWAYS)\b|\beve\b|chatgpt|claude|devtools/i.test(d)) problems.push(`${want.name}: description has internal references or steering`);
+    if (/#\d{2,}|busymate-ai#|\beve\b|chatgpt|claude|devtools/i.test(d) || /\b(NEVER|ALWAYS)\b/.test(d)) problems.push(`${want.name}: description has internal references or steering`);
     if (d.length > 1000) problems.push(`${want.name}: description is ${d.length} characters`);
     if (got.outputSchema === undefined && got._meta?.['openai/outputTemplate']) problems.push(`${want.name}: UI tool without outputSchema`);
   }
   for (const name of live.keys()) if (!spec.tools.some((t) => t.name === name)) problems.push(`${name}: live but not declared (profile must equal the declared allowlist)`);
   const instructions = init.result?.instructions ?? '';
-  if (/#\d{2,}|devtools|\bNEVER\b|\bALWAYS\b/i.test(instructions)) problems.push('server instructions contain internal references or steering');
+  if (/#\d{2,}|devtools/i.test(instructions) || /\b(NEVER|ALWAYS)\b/.test(instructions)) problems.push('server instructions contain internal references or steering');
 } catch (err) {
   problems.push(`could not scan ${url}: ${err.message}`);
 }

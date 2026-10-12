@@ -9,9 +9,9 @@ Version: 1.0.0 · Run date: _not run_
 | Connect and sign in (OAuth) | | | | |
 | P1 Workspaces with open handoffs | | | | |
 | P2 Summarize open handoffs | | | | |
-| P3 Reply to a customer and resolve (asks for confirmation) | | | | |
+| P3 Reply to the warranty request and resolve (asks for confirmation) | | | | |
 | P4 Answer from workspace knowledge | | | | |
-| P5 Answer a customer email (asks for confirmation) | | | | |
+| P5 Add an internal note and get the install snippet | | | | |
 | N1 Plan change: no tool call, points to the Console | | | | |
 | N2 Bulk deletion: no tool call, explains it is not available | | | | |
 | N3 Workspace outside the account: no data shown | | | | |
