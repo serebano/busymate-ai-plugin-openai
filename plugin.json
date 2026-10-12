@@ -4,20 +4,25 @@
   "version": "1.0.0",
   "description": "Review and answer your Busymate AI customer conversations, handoffs and email from ChatGPT.",
   "author": {
-    "name": "Busymate AI",
+    "name": "EFIRITY PTE. LTD.",
     "email": "hi@busymate.ai",
     "url": "https://busymate.ai"
   },
   "homepage": "https://busymate.ai",
   "license": "MIT",
-  "keywords": ["customer support", "inbox", "help desk", "knowledge base"],
+  "keywords": [
+    "customer support",
+    "inbox",
+    "help desk",
+    "knowledge base"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Busymate AI",
         "shortDescription": "Your customer inbox, in chat",
         "longDescription": "Busymate AI connects ChatGPT to your Busymate workspace, the assistant that answers your customers on your website and by email. Sign in with your Busymate account to review recent customer conversations, see which ones your assistant handed to a person, read the full thread, and reply or resolve from the chat. You can also search your workspace knowledge, add a public web page as a knowledge source, read and answer customer email, and get the snippet that installs the assistant on your site.\n\nFor owners and support staff of businesses that use Busymate AI.\n\nLimits: you need a Busymate account, and you see only the workspaces you belong to. Replies to customers are sent only after you confirm them and cannot be recalled. Workspace setup, billing, team management and channel connections stay in the Busymate Console.",
-        "developerName": "Busymate AI",
+        "developerName": "EFIRITY PTE. LTD.",
         "category": "Business & Operations",
         "capabilities": [
           "Review customer conversations",
@@ -27,9 +32,9 @@
           "Get the website install snippet"
         ],
         "websiteURL": "https://busymate.ai",
-        "supportURL": "https://busymate.ai/contact",
-        "privacyPolicyURL": "https://busymate.ai/privacy",
-        "termsOfServiceURL": "https://busymate.ai/terms",
+        "supportURL": "https://busymate.ai/apps/support",
+        "privacyPolicyURL": "https://busymate.ai/apps/privacy",
+        "termsOfServiceURL": "https://busymate.ai/apps/terms",
         "defaultPrompt": [
           "Which customer conversations need my attention today?",
           "Summarize the open handoff requests in my workspace.",
