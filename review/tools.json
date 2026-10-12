@@ -198,66 +198,6 @@
       "verify": "Confirm handler side effects match the summary before freezing."
     },
     {
-      "name": "list_email_threads",
-      "summary": "Lists customer email threads in the workspace inbox.",
-      "annotations": {
-        "readOnlyHint": true,
-        "destructiveHint": false,
-        "openWorldHint": false
-      },
-      "justifications": {
-        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
-        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
-        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
-      },
-      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
-    },
-    {
-      "name": "search_email",
-      "summary": "Searches customer email threads by text, sender or subject.",
-      "annotations": {
-        "readOnlyHint": true,
-        "destructiveHint": false,
-        "openWorldHint": false
-      },
-      "justifications": {
-        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
-        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
-        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
-      },
-      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
-    },
-    {
-      "name": "get_email_thread",
-      "summary": "Reads the messages of one email thread.",
-      "annotations": {
-        "readOnlyHint": true,
-        "destructiveHint": false,
-        "openWorldHint": false
-      },
-      "justifications": {
-        "readOnlyHint": "Reads data only; it creates, changes or deletes nothing and sends nothing.",
-        "destructiveHint": "Read-only; nothing can be deleted or overwritten.",
-        "openWorldHint": "Reads only the signed-in user's own Busymate workspace, a bounded private account."
-      },
-      "verify": "Confirm the handler has no side effects beyond the summary (including analytics or log rows) before freezing."
-    },
-    {
-      "name": "send_email_reply",
-      "summary": "Sends an email reply to the customer on an existing thread.",
-      "annotations": {
-        "readOnlyHint": false,
-        "destructiveHint": true,
-        "openWorldHint": true
-      },
-      "justifications": {
-        "readOnlyHint": "Changes state in the user's Busymate workspace.",
-        "destructiveHint": "Sends an email to an end customer; email cannot be recalled.",
-        "openWorldHint": "Delivers an email to an external address."
-      },
-      "verify": "Confirm handler side effects match the summary before freezing."
-    },
-    {
       "name": "get_install_snippet",
       "summary": "Returns the script snippet that installs the assistant on the business's website.",
       "annotations": {

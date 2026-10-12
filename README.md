@@ -13,6 +13,7 @@ The OpenAI plugin package for [Busymate AI](https://busymate.ai). It lists Busym
 | `assets/` | Square logo and composer icon (both required for Codex) |
 | `skills/` | Workflow skills for ChatGPT and Codex; same content as the Claude plugin's skills |
 | `review/test-matrix.md` | Every test case on every surface, filled in before submission |
+| `review/reviewer-instructions.md` | Text for the portal's reviewer instructions (credentials go only in the portal form) |
 | `review/tools.json` | Declared v1 tool profile: the three hints per tool and the justification for each, pasted into the portal |
 | `scripts/validate.mjs` | Offline checks that mirror the portal's submission errors |
 | `scripts/scan-live.mjs` | Compares the live `tools/list` with `review/tools.json`; fails closed |
