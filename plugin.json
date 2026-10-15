@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "busymate-ai",
-  "version": "1.0.0",
-  "description": "Review and answer your Busymate AI customer conversations and handoff requests from ChatGPT.",
+  "version": "1.1.0",
+  "description": "Work your Busymate AI workspaces from ChatGPT and Codex: customer conversations and handoff requests, knowledge, and the workspace settings your role allows.",
   "author": {
     "name": "EFIRITY PTE. LTD.",
     "email": "hi@busymate.ai",
@@ -21,7 +21,7 @@
       "interface": {
         "displayName": "Busymate AI",
         "shortDescription": "Your customer inbox, in chat",
-        "longDescription": "Busymate AI connects ChatGPT to your Busymate workspace, the assistant that answers your customers on your website. Sign in with your Busymate account to review recent customer conversations, see which ones your assistant handed to a person, read the full conversation, and reply, add an internal note or resolve it from the chat. You can also search your workspace knowledge, add a public web page as a knowledge source, and get the snippet that installs the assistant on your site.\n\nFor owners and support staff of businesses that use Busymate AI.\n\nLimits: you need a Busymate account, and you see only the workspaces you belong to. Replies to customers are sent only after you confirm them and cannot be recalled. Workspace setup, billing, team management and channel connections stay in the Busymate Console.",
+        "longDescription": "Busymate AI connects ChatGPT to your Busymate workspace, the assistant that answers your customers on your website. Sign in with your Busymate account to review recent customer conversations, see which ones your assistant handed to a person, read the full conversation, and reply, add an internal note or resolve it from the chat. You can also search your workspace knowledge, add a public web page as a knowledge source, and get the snippet that installs the assistant on your site.\n\nFor owners and support staff of businesses that use Busymate AI.\n\nA workspace admin can also manage members, branding, channels, connections and publishing — the same work as in the Busymate Console, as far as their role allows.\n\nLimits: you need a Busymate account, and you see only the workspaces you belong to and the tools your role allows. Every action that changes something is sent only after you confirm it; replies to customers cannot be recalled.",
         "developerName": "EFIRITY PTE. LTD.",
         "category": "Business & Operations",
         "capabilities": [
@@ -98,7 +98,7 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "Initial release: customer conversations, handoff requests with replies and internal notes, knowledge search and the website install snippet for Busymate AI workspaces."
+        "release_notes": "One server for every AI assistant at https://busymate.ai/mcp, with the full workspace tool list for the signed-in user's role: customer conversations, handoff requests with replies and internal notes, knowledge, workspace settings and the website install snippet."
       }
     }
   },
