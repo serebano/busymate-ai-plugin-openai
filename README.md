@@ -2,7 +2,7 @@
 
 The OpenAI plugin package for [Busymate AI](https://busymate.ai). It lists Busymate in OpenAI's plugin directory on **ChatGPT and Codex**, connected to the Busymate MCP server, with two skills (inbox triage, knowledge answers).
 
-**Status: draft, not submitted.** The server profile at `https://busymate.ai/mcp/openai` does not exist yet; `node scripts/scan-live.mjs` lists what is missing. See [docs/submission-checklist.md](docs/submission-checklist.md).
+The server is `https://busymate.ai/mcp`, the same Busymate AI MCP server every AI assistant uses (`https://busymate.ai/mcp/openai` is a permanent alias of it); `node scripts/scan-live.mjs` compares it with `review/tools.json`. See [docs/submission-checklist.md](docs/submission-checklist.md).
 
 ## What is in this repo
 
@@ -14,7 +14,7 @@ The OpenAI plugin package for [Busymate AI](https://busymate.ai). It lists Busym
 | `skills/` | Workflow skills for ChatGPT and Codex; same content as the Claude plugin's skills |
 | `review/test-matrix.md` | Every test case on every surface, filled in before submission |
 | `review/reviewer-instructions.md` | Text for the portal's reviewer instructions (credentials go only in the portal form) |
-| `review/tools.json` | Declared v1 tool profile: the three hints per tool and the justification for each, pasted into the portal |
+| `review/tools.json` | The server's tools as a workspace admin sees them (generated from the server): the three hints per tool and the justification for each, pasted into the portal |
 | `scripts/validate.mjs` | Offline checks that mirror the portal's submission errors |
 | `scripts/scan-live.mjs` | Compares the live `tools/list` with `review/tools.json`; fails closed |
 | `scripts/package.sh` | Builds the submission ZIP from an allowlist of files |

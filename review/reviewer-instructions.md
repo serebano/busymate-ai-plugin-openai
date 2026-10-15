@@ -1,6 +1,6 @@
 Busymate AI — reviewer access
 
-1. Connect the Busymate AI plugin from the plugin directory (ChatGPT or Codex). If asked for a server URL, use https://busymate.ai/mcp/openai.
+1. Connect the Busymate AI plugin from the plugin directory (ChatGPT or Codex). If asked for a server URL, use https://busymate.ai/mcp.
 2. When asked to sign in, you land on https://busymate.ai/login. Enter the reviewer email and password provided in this submission. It is email and password only: no MFA, no email code, no sign-up. Then approve the consent screen.
 3. The account owns the workspace "Demo Bakery", a fictional bakery that also sells baking equipment. All customers, addresses and orders in it are invented.
 4. Things to try:

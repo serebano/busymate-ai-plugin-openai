@@ -3,7 +3,7 @@
   "mcpServers": {
     "busymate-ai": {
       "type": "streamable-http",
-      "url": "https://busymate.ai/mcp/openai",
+      "url": "https://busymate.ai/mcp",
       "extensions": {
         "com.openai": {
           "auth": {
