@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "busymate-ai",
-  "version": "1.0.0",
-  "description": "Review and answer your Busymate AI customer conversations and handoff requests from ChatGPT.",
+  "version": "1.1.0",
+  "description": "Work your Busymate AI inbox, handoff requests and knowledge from ChatGPT or Codex.",
   "author": {
     "name": "EFIRITY PTE. LTD.",
     "email": "hi@busymate.ai",
@@ -20,8 +20,8 @@
     "com.openai": {
       "interface": {
         "displayName": "Busymate AI",
-        "shortDescription": "Your customer inbox, in chat",
-        "longDescription": "Busymate AI connects ChatGPT to your Busymate workspace, the assistant that answers your customers on your website. Sign in with your Busymate account to review recent customer conversations, see which ones your assistant handed to a person, read the full conversation, and reply, add an internal note or resolve it from the chat. You can also search your workspace knowledge, add a public web page as a knowledge source, and get the snippet that installs the assistant on your site.\n\nFor owners and support staff of businesses that use Busymate AI.\n\nLimits: you need a Busymate account, and you see only the workspaces you belong to. Replies to customers are sent only after you confirm them and cannot be recalled. Workspace setup, billing, team management and channel connections stay in the Busymate Console.",
+        "shortDescription": "Your support desk",
+        "longDescription": "Work your Busymate AI inbox, handoff requests and knowledge from ChatGPT or Codex.\n\nUse the official connector to check your inbox, answer handoff requests and search your knowledge without leaving the AI assistant you already work in.\n\nNothing to paste: you sign in with your Busymate AI account, and the app acts with your role in each workspace. Reads run straight away; a reply to a customer, a resolved request or a new knowledge source waits for your approval.",
         "developerName": "EFIRITY PTE. LTD.",
         "category": "Business & Operations",
         "capabilities": [
@@ -98,7 +98,7 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "Initial release: customer conversations, handoff requests with replies and internal notes, knowledge search and the website install snippet for Busymate AI workspaces."
+        "release_notes": "Connects to the one Busymate AI server at https://busymate.ai/mcp, the same server every AI assistant uses, with the tools your role allows in each workspace."
       }
     }
   },
