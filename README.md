@@ -1,8 +1,10 @@
 # Busymate AI plugin for ChatGPT
 
-The OpenAI plugin package for [Busymate AI](https://busymate.ai). It lists Busymate in OpenAI's plugin directory on **ChatGPT and Codex**, connected to the Busymate MCP server, with two skills (inbox triage, knowledge answers).
+Work your Busymate AI inbox, handoff requests and knowledge from ChatGPT or Codex.
 
-**Status: draft, not submitted.** The server profile at `https://busymate.ai/mcp/openai` does not exist yet; `node scripts/scan-live.mjs` lists what is missing. See [docs/submission-checklist.md](docs/submission-checklist.md).
+The OpenAI plugin package for [Busymate AI](https://busymate.ai). It lists Busymate AI in OpenAI's plugin directory on **ChatGPT and Codex**, connected to the one Busymate AI MCP server at `https://busymate.ai/mcp`, with two skills (inbox triage, knowledge answers).
+
+The server is `https://busymate.ai/mcp`, the same server every AI assistant uses (Claude, ChatGPT, Codex). `https://busymate.ai/mcp/openai` stays a permanent alias of it, so existing connections keep working. `node scripts/scan-live.mjs` compares the live server with `review/tools.json`. Submission status: [docs/submission-checklist.md](docs/submission-checklist.md).
 
 ## What is in this repo
 
@@ -14,7 +16,7 @@ The OpenAI plugin package for [Busymate AI](https://busymate.ai). It lists Busym
 | `skills/` | Workflow skills for ChatGPT and Codex; same content as the Claude plugin's skills |
 | `review/test-matrix.md` | Every test case on every surface, filled in before submission |
 | `review/reviewer-instructions.md` | Text for the portal's reviewer instructions (credentials go only in the portal form) |
-| `review/tools.json` | Declared v1 tool profile: the three hints per tool and the justification for each, pasted into the portal |
+| `review/tools.json` | The tools a signed-in workspace admin gets from ChatGPT, generated from the live server: the three hints per tool and the justification for each, pasted into the portal |
 | `scripts/validate.mjs` | Offline checks that mirror the portal's submission errors |
 | `scripts/scan-live.mjs` | Compares the live `tools/list` with `review/tools.json`; fails closed |
 | `scripts/package.sh` | Builds the submission ZIP from an allowlist of files |

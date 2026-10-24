@@ -46,7 +46,7 @@ try {
 
   for (const want of spec.tools) {
     const got = live.get(want.name);
-    if (!got) { problems.push(`${want.name}: missing from the live profile`); continue; }
+    if (!got) { problems.push(`${want.name}: missing from the live server`); continue; }
     for (const [h, v] of Object.entries(want.annotations)) {
       if (got.annotations?.[h] !== v) problems.push(`${want.name}: ${h} is ${got.annotations?.[h]} live, ${v} declared`);
     }
@@ -56,7 +56,7 @@ try {
     if (d.length > 1000) problems.push(`${want.name}: description is ${d.length} characters`);
     if (got.outputSchema === undefined && got._meta?.['openai/outputTemplate']) problems.push(`${want.name}: UI tool without outputSchema`);
   }
-  for (const name of live.keys()) if (!spec.tools.some((t) => t.name === name)) problems.push(`${name}: live but not declared (profile must equal the declared allowlist)`);
+  for (const name of live.keys()) if (!spec.tools.some((t) => t.name === name)) problems.push(`${name}: live but not declared (the live list must equal the declared tools)`);
   const instructions = init.result?.instructions ?? '';
   if (/#\d{2,}|devtools/i.test(instructions) || /\b(NEVER|ALWAYS)\b/.test(instructions)) problems.push('server instructions contain internal references or steering');
 } catch (err) {

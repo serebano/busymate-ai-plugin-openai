@@ -51,7 +51,7 @@ Selected: **ChatGPT and Codex**. Every test case must pass on each supported sur
 
 - [ ] H All 5 positive and 3 negative cases pass on ChatGPT web, ChatGPT iOS, ChatGPT Android and Codex. Record the results in `review/test-matrix.md`.
 - [ ] H The Codex manifest fields are present: `version`, `description`, `author.name`, `interface`, a non-empty `capabilities` list, `logo` and `composerIcon`. `validate.mjs` checks these.
-- [ ] H Both skills pass the portal's skill safety and security scans. Skills use only tools from the declared profile.
+- [ ] H Both skills pass the portal's skill safety and security scans. Skills use only tools from the declared list.
 - [ ] S Sign-in works from the Codex app and Codex CLI as well as ChatGPT. The OAuth redirect shown on the management page covers both.
 
 ## Package (this repo)
@@ -73,7 +73,7 @@ Selected: **ChatGPT and Codex**. Every test case must pass on each supported sur
 
 ## Submission steps
 
-1. Deploy the server profile and confirm `scan-live.mjs` is green with the reviewer token.
+1. Confirm `scan-live.mjs` is green against `https://busymate.ai/mcp` with the reviewer token.
 2. In the OpenAI platform dashboard, create the plugin and complete domain verification.
 3. Run **Scan Tools**. Paste each justification from `review/tools.json`.
 4. Upload the ZIP from `scripts/package.sh`. Enter reviewer credentials and instructions in the form.
