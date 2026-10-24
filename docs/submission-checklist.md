@@ -79,3 +79,13 @@ Selected: **ChatGPT and Codex**. Every test case must pass on each supported sur
 4. Upload the ZIP from `scripts/package.sh`. Enter reviewer credentials and instructions in the form.
 5. Complete the policy attestations and submit. Only one review can be active at a time; feedback arrives by email.
 6. After approval, publish when ready. Server changes to tools, `_meta`, CSP or instructions go through continuous review after a rescan. Package changes need a new version and full review.
+
+## Submission status
+
+Updated 2026-10-24.
+
+| Item | Id | State |
+|---|---|---|
+| Plugin "Busymate AI" 1.0.0 | `plugin_asdk_app_6accadee49f48191a8d8109041891188` | In review since 2026-10-12, MCP URL `https://busymate.ai/mcp/openai` |
+| Plugin 1.1.0 (this repo's `main`) | same plugin | Ready, not submitted. MCP URL `https://busymate.ai/mcp`; `scan-live.mjs` green (282 tools, every UI tool declares `outputSchema`). Submitting it means **Cancel review** on 1.0.0 first, which gives up 1.0.0's place in the queue; waiting for the owner's go. |
+| Development app used for UI walks | `asdk_app_6adbdd1db9c08191852ccf7e66be2b3b` | Dev mode, URL `https://busymate.ai/mcp`, connected as the reviewer account. After a server change to a widget, use **Refresh tools** on it. |
