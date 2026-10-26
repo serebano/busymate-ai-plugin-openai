@@ -5,6 +5,7 @@
 - Server URL is `https://busymate.ai/mcp`, the one Busymate AI server for every AI assistant. `https://busymate.ai/mcp/openai` remains a permanent alias.
 - Listing name, taglines and descriptions use the official copy from busymate.ai/connectors/chatgpt.
 - `review/tools.json` lists the tools a signed-in workspace admin gets from ChatGPT or Codex (282). It is generated from the live server by `scripts/gen-tools.mjs`. Plans, prices, checkout, billing and tools that take or return credentials are not offered to ChatGPT.
+- Negative case N2 asks to delete the workspace instead of bulk-deleting conversations. With the 282-tool profile, `delete_tenant_conversation` can delete conversations one at a time, so bulk deletion is no longer out of scope; workspace deletion is.
 
 ## 1.0.0 (unreleased)
 
