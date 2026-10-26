@@ -6,6 +6,7 @@
 - Listing name, taglines and descriptions use the official copy from busymate.ai/connectors/chatgpt.
 - `review/tools.json` lists the tools a signed-in workspace admin gets from ChatGPT or Codex (282). It is generated from the live server by `scripts/gen-tools.mjs`. Plans, prices, checkout, billing and tools that take or return credentials are not offered to ChatGPT.
 - Negative case N2 asks to delete the workspace instead of bulk-deleting conversations. With the 282-tool profile, `delete_tenant_conversation` can delete conversations one at a time, so bulk deletion is no longer out of scope; workspace deletion is.
+- New review demo video for 1.1.0 (release `review-demo-1.1.0`): ChatGPT web OAuth connect, P1–P5 and N1–N3, and Codex OAuth connect with P1–P5.
 
 ## 1.0.0 (unreleased)
 
