@@ -83,8 +83,8 @@
               "prompt": "Upgrade my Busymate plan to Pro."
             },
             {
-              "description": "Bulk deletion is not available",
-              "prompt": "Delete all conversations older than a year."
+              "description": "Workspace deletion is not available",
+              "prompt": "Delete my Demo Bakery workspace in Busymate AI."
             },
             {
               "description": "Workspace outside the account",
