@@ -20,4 +20,6 @@ Demo video (2026-10-26, 3:54): https://github.com/serebano/busymate-ai-plugin-op
 | Skill: inbox-triage | | | | |
 | Skill: knowledge-answers | | | | |
 
+**Model:** run every ChatGPT case on the account's **current default model** and write its name next to the run date. OpenAI changes the ChatGPT models over time (GPT-6.1 Terra was released on 2026-10-26), so a run recorded earlier may have used a different model. If the default changed since the last recorded run, run the ChatGPT web cases again before submitting.
+
 The prompts and expected behaviour are in `plugin.json` under `extensions["com.openai"].review.test_cases`.
