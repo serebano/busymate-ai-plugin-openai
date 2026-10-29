@@ -37,7 +37,7 @@ Sources:
 - [ ] S Per-tool `securitySchemes`, and `_meta["mcp/www_authenticate"]` on auth-error results, so ChatGPT can offer sign-in.
 - [ ] S OIDC `openid` + `email` scopes and a UserInfo endpoint returning `email_verified: true`. Business and Enterprise workspaces with domain restrictions need this.
 - [ ] S Rate limits and timeouts on expensive tools. No tokens or sensitive results in logs.
-- [ ] H If UI ships: `_meta.ui.domain` is unique to this plugin, CSP lists every fetched domain, and nested frames are justified. v1 ships without UI.
+- [ ] H If UI ships: `_meta.ui.domain` is unique to this plugin, CSP lists every fetched domain, and nested frames are justified. The server ships widgets (`ui://widget/*`, 55 tools on the full catalogue): every widget is one self-contained HTML document with no network access, so `connect_domains` and `resource_domains` are `[]`; `openai/widgetDomain` is `https://busymate.ai`. Recheck `_meta` with `resources/read` before each submission.
 
 ## Privacy and policy
 
