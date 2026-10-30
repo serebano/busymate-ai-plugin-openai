@@ -2,9 +2,9 @@
 
 Work your Busymate AI inbox, handoff requests and knowledge from ChatGPT or Codex.
 
-The OpenAI plugin package for [Busymate AI](https://busymate.ai). It lists Busymate AI in OpenAI's plugin directory on **ChatGPT and Codex**, connected to the one Busymate AI MCP server at `https://busymate.ai/mcp`, with two skills (inbox triage, knowledge answers).
+The OpenAI plugin package for [Busymate AI](https://busymate.ai). It lists Busymate AI in OpenAI's plugin directory on **ChatGPT and Codex**, connected to the Busymate AI MCP server at `https://busymate.ai/mcp/openai`, with two skills (inbox triage, knowledge answers).
 
-The server is `https://busymate.ai/mcp`, the same server every AI assistant uses (Claude, ChatGPT, Codex). `https://busymate.ai/mcp/openai` stays a permanent alias of it, so existing connections keep working. `node scripts/scan-live.mjs` compares the live server with `review/tools.json`. Submission status: [docs/submission-checklist.md](docs/submission-checklist.md).
+The plugin connects to `https://busymate.ai/mcp/openai`: the one Busymate AI server, served as the OpenAI app's strict projection (busymate-ai-src#3207). Any connection there, ChatGPT or Codex, is offered only the 14 app tools, and each returns only its allowlisted fields (`review/tools.json` → `dataReturned`), disclosed at https://busymate.ai/apps/privacy. `node scripts/scan-live.mjs` compares the live server with `review/tools.json`. Submission status: [docs/submission-checklist.md](docs/submission-checklist.md).
 
 ## What is in this repo
 

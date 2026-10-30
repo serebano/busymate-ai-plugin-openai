@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "busymate-ai",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Work your Busymate AI inbox, handoff requests and knowledge from ChatGPT or Codex.",
   "author": {
     "name": "EFIRITY PTE. LTD.",
@@ -98,7 +98,7 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "Connects to the one Busymate AI server at https://busymate.ai/mcp, the same server every AI assistant uses, with the tools your role allows in each workspace."
+        "release_notes": "Busymate AI for ChatGPT offers 14 tools for your support inbox, handoff requests and knowledge. Each tool returns only the fields it needs; every category of data it can return is listed in the apps privacy policy at https://busymate.ai/apps/privacy."
       }
     }
   },
