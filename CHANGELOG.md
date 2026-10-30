@@ -9,6 +9,7 @@ Remediation of the 1.0.0 review ("Your plugin returns user-related data not disc
 - Removed from results: team members' phone numbers and user ids, notification delivery records, customer location fields, assignment evidence, internal session and run ids, billing plan, workspace settings, knowledge memory ids, search ids, raw transcript documents and event views. Error text no longer carries emails, phone numbers, IP addresses or ids.
 - Server URL is `https://busymate.ai/mcp/openai` again: on that path every connection (ChatGPT and Codex) gets the app's 14 tools and allowlisted fields. `https://busymate.ai/mcp` stays the general server for other clients.
 - `review/remediation-1.1.1.md`: the reply to the reviewer, category by category.
+- Listing long description states what the tools do and their limits, without promises the plugin cannot keep (platform metadata check: "Remove or revise promises and guarantees").
 
 ## 1.1.0 (unreleased)
 
