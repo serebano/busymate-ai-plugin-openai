@@ -10,6 +10,7 @@ Remediation of the 1.0.0 review ("Your plugin returns user-related data not disc
 - Server URL is `https://busymate.ai/mcp/openai` again: on that path every connection (ChatGPT and Codex) gets the app's 14 tools and allowlisted fields. `https://busymate.ai/mcp` stays the general server for other clients.
 - `review/remediation-1.1.1.md`: the reply to the reviewer, category by category.
 - Listing long description states what the tools do and their limits, without promises the plugin cannot keep (platform metadata check: "Remove or revise promises and guarantees").
+- Review demo for 1.1.1 (release `review-demo-1.1.1`): ChatGPT web with the reviewer account against https://busymate.ai/mcp/openai.
 
 ## 1.1.0 (unreleased)
 
