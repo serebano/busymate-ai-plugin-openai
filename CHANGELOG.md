@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.1 (unreleased)
+
+Remediation of the 1.0.0 review ("Your plugin returns user-related data not disclosed in your privacy policy. Remove unnecessary fields or clearly disclose each category, including nested and debug data."):
+
+- The server offers a ChatGPT client only the 14 app tools, and each returns only the fields on its allowlist (busymate-ai-src#3207). `review/tools.json` lists those 14 tools with `dataReturned` (categories and exact field paths).
+- The apps privacy policy has a new section, "Data returned by the ChatGPT and Claude apps", generated from the same allowlists: each category with what it holds, purpose, the tools that return it, source and retention.
+- Removed from results: team members' phone numbers and user ids, notification delivery records, customer location fields, assignment evidence, internal session and run ids, billing plan, workspace settings, knowledge memory ids, search ids, raw transcript documents and event views. Error text no longer carries emails, phone numbers, IP addresses or ids.
+- Server URL is `https://busymate.ai/mcp/openai` again: on that path every connection (ChatGPT and Codex) gets the app's 14 tools and allowlisted fields. `https://busymate.ai/mcp` stays the general server for other clients.
+- `review/remediation-1.1.1.md`: the reply to the reviewer, category by category.
+
 ## 1.1.0 (unreleased)
 
 - Server URL is `https://busymate.ai/mcp`, the one Busymate AI server for every AI assistant. `https://busymate.ai/mcp/openai` remains a permanent alias.

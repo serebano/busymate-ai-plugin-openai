@@ -73,7 +73,7 @@ Selected: **ChatGPT and Codex**. Every test case must pass on each supported sur
 
 ## Submission steps
 
-1. Confirm `scan-live.mjs` is green against `https://busymate.ai/mcp` with the reviewer token.
+1. Confirm `scan-live.mjs` is green against `https://busymate.ai/mcp/openai` with the reviewer token.
 2. In the OpenAI platform dashboard, create the plugin and complete domain verification.
 3. Run **Scan Tools**. Paste each justification from `review/tools.json`.
 4. Upload the ZIP from `scripts/package.sh`. Enter reviewer credentials and instructions in the form.
@@ -88,4 +88,5 @@ Updated 2026-10-24.
 |---|---|---|
 | Plugin "Busymate AI" 1.0.0 | `plugin_asdk_app_6accadee49f48191a8d8109041891188` | In review since 2026-10-12, MCP URL `https://busymate.ai/mcp/openai` |
 | Plugin 1.1.0 (this repo's `main`) | same plugin | Ready, not submitted. MCP URL `https://busymate.ai/mcp`; `scan-live.mjs` green (282 tools, every UI tool declares `outputSchema`). Submitting it means **Cancel review** on 1.0.0 first, which gives up 1.0.0's place in the queue; waiting for the owner's go. |
+| Plugin 1.1.1 (remediation of the 1.0.0 review, busymate-ai-src#3207) | same plugin | Ready after #3207 is live, not submitted. MCP URL `https://busymate.ai/mcp/openai`; 14 tools with output allowlists; reply text in `review/remediation-1.1.1.md`. |
 | Development app used for UI walks | `asdk_app_6adbdd1db9c08191852ccf7e66be2b3b` | Dev mode, URL `https://busymate.ai/mcp`, connected as the reviewer account. After a server change to a widget, use **Refresh tools** on it. |

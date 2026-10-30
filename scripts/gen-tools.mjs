@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'review/tools.json');
-const url = 'https://busymate.ai/mcp';
+const url = 'https://busymate.ai/mcp/openai';
 const token = process.env.BUSYMATE_MCP_TOKEN;
 if (!token) { console.error('gen-tools: set BUSYMATE_MCP_TOKEN'); process.exit(1); }
 
@@ -27,9 +27,12 @@ const J = {
   owClosed: "Acts only inside the user's own Busymate AI workspace.",
   owOpen: 'Reaches people or systems outside the workspace: a customer, an email or phone address, a web address the user names, or a connected third-party account.',
 };
+// busymate-ai-src#3207 — `dataReturned` (categories + allowlisted fields) is copied from
+// the server's appOutputAllowlist.ts by hand-review, so a regeneration keeps it.
+const previous = fs.existsSync(OUT) ? new Map(JSON.parse(fs.readFileSync(OUT, 'utf8')).tools.map((t) => [t.name, t.dataReturned])) : new Map();
 const first = (d) => (d || '').split(/(?<=\.)\s/)[0].slice(0, 300);
 const out = {
-  _note: 'The tools of the Busymate AI MCP server at https://busymate.ai/mcp as a signed-in workspace admin sees them from ChatGPT or Codex. Generated from the live server by scripts/gen-tools.mjs; scripts/scan-live.mjs compares it with the live tools/list.',
+  _note: 'The 14 tools of the Busymate AI app as a signed-in ChatGPT client sees them (busymate-ai-src#3207); each returns only the fields in dataReturned.fields, disclosed at https://busymate.ai/apps/privacy. Generated from the live server by scripts/gen-tools.mjs; scripts/scan-live.mjs compares it with the live tools/list.',
   serverUrl: url,
   tools: tools.map((t) => {
     const a = t.annotations || {};
@@ -43,6 +46,7 @@ const out = {
         destructiveHint: a.destructiveHint ? J.dWrite : J.dRead,
         openWorldHint: a.openWorldHint ? J.owOpen : J.owClosed,
       },
+      ...(previous.get(t.name) ? { dataReturned: previous.get(t.name) } : {}),
     };
   }),
 };
