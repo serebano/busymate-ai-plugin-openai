@@ -21,7 +21,7 @@
       "interface": {
         "displayName": "Busymate AI",
         "shortDescription": "Your support desk",
-        "longDescription": "Work your Busymate AI inbox, handoff requests and knowledge from ChatGPT or Codex.\n\nUse the official connector to check your inbox, answer handoff requests and search your knowledge without leaving the AI assistant you already work in.\n\nNothing to paste: you sign in with your Busymate AI account, and the app acts with your role in each workspace. Reads run straight away; a reply to a customer, a resolved request or a new knowledge source waits for your approval.",
+        "longDescription": "Work your Busymate AI inbox, handoff requests and knowledge from ChatGPT or Codex.\n\nSee which customer conversations your assistant handed to a person, read a conversation, reply to a handoff request, add an internal note or resolve it, search your workspace knowledge, add a public web page as a knowledge source and get the snippet that installs the assistant on your website.\n\nYou need a Busymate AI account. You sign in with it and see only the workspaces you belong to, with your role's permissions in each. A reply you send reaches the customer's chat and cannot be recalled.",
         "developerName": "EFIRITY PTE. LTD.",
         "category": "Business & Operations",
         "capabilities": [
