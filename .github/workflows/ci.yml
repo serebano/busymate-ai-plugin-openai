@@ -8,6 +8,7 @@ jobs:
   validate:
     # Our ephemeral k3s runner (scale set ci-plugin-openai); never GitHub-hosted (owner order 2026-11-04).
     runs-on: ci-plugin-openai
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - name: No GitHub-hosted runners (runs-on lint)
@@ -27,6 +28,7 @@ jobs:
     if: ${{ vars.SCAN_LIVE == 'true' }}
     # Our ephemeral k3s runner (scale set ci-plugin-openai); never GitHub-hosted (owner order 2026-11-04).
     runs-on: ci-plugin-openai
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
