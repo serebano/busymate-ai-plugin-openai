@@ -6,9 +6,12 @@ on:
   workflow_dispatch:
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    # Our ephemeral k3s runner (scale set ci-plugin-openai); never GitHub-hosted (owner order 2026-11-04).
+    runs-on: ci-plugin-openai
     steps:
       - uses: actions/checkout@v4
+      - name: No GitHub-hosted runners (runs-on lint)
+        run: python3 .github/runs-on-lint.py
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -22,7 +25,8 @@ jobs:
   # secret shows up as a skipped job, not a green scan.
   scan-live:
     if: ${{ vars.SCAN_LIVE == 'true' }}
-    runs-on: ubuntu-latest
+    # Our ephemeral k3s runner (scale set ci-plugin-openai); never GitHub-hosted (owner order 2026-11-04).
+    runs-on: ci-plugin-openai
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
