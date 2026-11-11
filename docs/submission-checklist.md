@@ -82,11 +82,12 @@ Selected: **ChatGPT and Codex**. Every test case must pass on each supported sur
 
 ## Submission status
 
-Updated 2026-10-24.
+Updated 2026-11-11 (read in the platform dashboard).
 
 | Item | Id | State |
 |---|---|---|
-| Plugin "Busymate AI" 1.0.0 | `plugin_asdk_app_6accadee49f48191a8d8109041891188` | In review since 2026-10-12, MCP URL `https://busymate.ai/mcp/openai` |
-| Plugin 1.1.0 (this repo's `main`) | same plugin | Ready, not submitted. MCP URL `https://busymate.ai/mcp`; `scan-live.mjs` green (282 tools, every UI tool declares `outputSchema`). Submitting it means **Cancel review** on 1.0.0 first, which gives up 1.0.0's place in the queue; waiting for the owner's go. |
-| Plugin 1.1.1 (remediation of the 1.0.0 review, busymate-ai-src#3207) | same plugin | Ready after #3207 is live, not submitted. MCP URL `https://busymate.ai/mcp/openai`; 14 tools with output allowlists; reply text in `review/remediation-1.1.1.md`. |
+| Plugin "Busymate AI" 1.1.1 (remediation of the 1.0.0 review, busymate-ai-src#3207) | `plugin_asdk_app_6accadee49f48191a8d8109041891188`, version `pluginrel_747fcf543c2c8191afa0f5ec29fa078d` | **In review** since 2026-10-31. The dashboard estimates review completion on 2026-11-13. Not published. MCP URL `https://busymate.ai/mcp/openai`, Authorized, domain verified. Metadata and both skills have no findings. |
+| MCP findings on 1.1.1 | same plugin | The MCPs tab shows "Needs attention". This is the non-blocking note from the 2026-10-30 scan: `add_tenant_knowledge_source` is a "new tool definition [that] needs further review". The tool is marked destructive and open-world on purpose, and the submission context explains why. The tab also says "No scan has finished since this connection", because the scan connection was moved to the reviewer on 2026-10-30. **Do not Rescan or Reconnect while the review is open.** The live tools still match the scanned definitions (`scan-live.mjs`: 14 tools match, 2026-11-11). |
+| Plugin 1.0.0 | same plugin | Rejected on 2026-10-30, with "Changes required" (user data not disclosed in the privacy policy). Replaced by 1.1.1. |
+| Plugin 1.1.0 | same plugin | Never submitted. 1.1.1 replaced it. |
 | Development app used for UI walks | `asdk_app_6adbdd1db9c08191852ccf7e66be2b3b` | Dev mode, URL `https://busymate.ai/mcp`, connected as the reviewer account. After a server change to a widget, use **Refresh tools** on it. |
